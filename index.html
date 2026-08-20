@@ -10,9 +10,9 @@
 
 <style>
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
 }
 
 html{
@@ -20,10 +20,10 @@ html{
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
     background:#080808;
     color:#fff;
-    overflow-x:hidden;
+    line-height:1.6;
 }
 
 a{
@@ -32,25 +32,22 @@ a{
 }
 
 /* =========================
-   NAVBAR
+   HEADER
 ========================= */
 
 header{
-    position:fixed;
+    position:sticky;
     top:0;
-    left:0;
-    width:100%;
-    height:72px;
-    background:rgba(5,5,5,.94);
-    backdrop-filter:blur(15px);
-    border-bottom:1px solid #222;
     z-index:1000;
+    background:rgba(5,5,5,.94);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid #222;
 }
 
 .nav{
     max-width:1200px;
-    height:100%;
     margin:auto;
+    min-height:72px;
     padding:0 25px;
     display:flex;
     align-items:center;
@@ -58,7 +55,7 @@ header{
 }
 
 .logo{
-    font-size:22px;
+    font-size:23px;
     font-weight:800;
     letter-spacing:-1px;
 }
@@ -74,12 +71,46 @@ header{
 }
 
 .menu a{
-    opacity:.8;
+    color:#ddd;
     transition:.3s;
 }
 
 .menu a:hover{
-    opacity:1;
+    color:#fff;
+}
+
+/* =========================
+   CINTA ANIMADA
+========================= */
+
+.marquee{
+    overflow:hidden;
+    background:#fff;
+    color:#050505;
+    white-space:nowrap;
+    border-bottom:1px solid #222;
+}
+
+.marquee-track{
+    display:inline-block;
+    padding:11px 0;
+    animation:mover 24s linear infinite;
+    font-weight:800;
+    font-size:13px;
+    letter-spacing:1px;
+}
+
+.marquee-track span{
+    margin:0 28px;
+}
+
+@keyframes mover{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(-50%);
+    }
 }
 
 /* =========================
@@ -87,62 +118,62 @@ header{
 ========================= */
 
 .hero{
-    min-height:100vh;
-    padding:150px 8% 80px;
+    min-height:650px;
     display:flex;
     align-items:center;
     background:
-    radial-gradient(circle at 80% 30%,#242424 0%,#101010 35%,#080808 70%);
+        radial-gradient(circle at 80% 40%,#292929 0%,#111 35%,#080808 70%);
 }
 
 .hero-content{
-    max-width:900px;
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+    padding:80px 25px;
 }
 
 .location{
     display:inline-block;
-    padding:10px 18px;
-    border:1px solid #444;
+    padding:9px 18px;
+    border:1px solid #555;
     border-radius:30px;
-    font-size:14px;
+    font-size:13px;
     margin-bottom:30px;
 }
 
-.location::before{
-    content:"●";
-    color:#ff3b30;
-    margin-right:8px;
+.location::first-letter{
+    color:red;
 }
 
 .hero h1{
-    font-size:clamp(55px,9vw,120px);
-    line-height:.88;
+    font-size:clamp(55px,9vw,115px);
+    line-height:.9;
     letter-spacing:-6px;
-    margin-bottom:30px;
+    max-width:850px;
+    margin-bottom:35px;
 }
 
 .hero h1 span{
-    font-weight:400;
+    display:block;
 }
 
 .hero p{
-    max-width:680px;
-    color:#ccc;
+    max-width:650px;
     font-size:20px;
-    line-height:1.6;
+    color:#bbb;
+    margin-bottom:35px;
 }
 
 .buttons{
     display:flex;
-    gap:15px;
-    margin-top:35px;
+    gap:14px;
     flex-wrap:wrap;
 }
 
 .btn{
-    padding:16px 25px;
+    display:inline-block;
+    padding:15px 25px;
     border-radius:8px;
-    border:1px solid #555;
     font-weight:bold;
     transition:.3s;
 }
@@ -152,38 +183,17 @@ header{
     color:#000;
 }
 
-.btn:hover{
+.btn-primary:hover{
     transform:translateY(-3px);
 }
 
-/* =========================
-   CINTA DE SERVICIOS
-========================= */
-
-.ticker{
-    overflow:hidden;
-    border-top:1px solid #222;
-    border-bottom:1px solid #222;
-    background:#111;
-    white-space:nowrap;
+.btn-secondary{
+    border:1px solid #555;
 }
 
-.ticker-track{
-    display:inline-block;
-    padding:22px 0;
-    animation:scroll 25s linear infinite;
-}
-
-.ticker span{
-    margin:0 30px;
-    font-size:14px;
-    font-weight:bold;
-    color:#ddd;
-}
-
-@keyframes scroll{
-    from{transform:translateX(0)}
-    to{transform:translateX(-50%)}
+.btn-secondary:hover{
+    background:#fff;
+    color:#000;
 }
 
 /* =========================
@@ -191,31 +201,23 @@ header{
 ========================= */
 
 section{
-    padding:100px 7%;
+    padding:90px 25px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
 }
 
 .section-title{
-    max-width:1200px;
-    margin:0 auto 50px;
-}
-
-.section-title small{
-    color:#999;
-    text-transform:uppercase;
-    letter-spacing:3px;
-}
-
-.section-title h2{
-    font-size:clamp(35px,5vw,65px);
-    margin-top:12px;
+    font-size:45px;
     letter-spacing:-2px;
+    margin-bottom:12px;
 }
 
-.section-title p{
+.section-text{
     color:#999;
-    max-width:650px;
-    margin-top:15px;
-    line-height:1.6;
+    margin-bottom:40px;
 }
 
 /* =========================
@@ -223,220 +225,214 @@ section{
 ========================= */
 
 .services{
-    background:#0d0d0d;
+    background:#111;
 }
 
-.services-grid{
-    max-width:1200px;
-    margin:auto;
+.service-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:15px;
+    gap:18px;
 }
 
-.service{
-    min-height:230px;
-    padding:30px;
-    border:1px solid #272727;
-    border-radius:15px;
-    background:linear-gradient(145deg,#171717,#0d0d0d);
+.service-card{
+    min-height:210px;
+    padding:28px;
+    background:#181818;
+    border:1px solid #292929;
+    border-radius:16px;
     transition:.3s;
 }
 
-.service:hover{
+.service-card:hover{
     transform:translateY(-7px);
-    border-color:#555;
+    border-color:#666;
 }
 
-.icon{
+.service-icon{
     font-size:35px;
-    margin-bottom:25px;
+    margin-bottom:20px;
 }
 
-.service h3{
+.service-card h3{
     font-size:20px;
-    margin-bottom:12px;
+    margin-bottom:10px;
 }
 
-.service p{
+.service-card p{
     color:#999;
-    line-height:1.5;
+    font-size:14px;
 }
 
 /* =========================
-   FOTOS
+   GALERIA
 ========================= */
 
 .gallery{
-    max-width:1200px;
-    margin:auto;
+    background:#080808;
 }
 
-.photo-slider{
-    display:flex;
-    gap:20px;
-    overflow-x:auto;
-    scroll-snap-type:x mandatory;
-    padding-bottom:20px;
-}
-
-.photo-slider::-webkit-scrollbar{
-    height:7px;
-}
-
-.photo-slider::-webkit-scrollbar-thumb{
-    background:#444;
-    border-radius:20px;
-}
-
-.photo{
-    flex:0 0 330px;
-    height:420px;
-    border-radius:18px;
+.carousel{
+    position:relative;
     overflow:hidden;
-    scroll-snap-align:start;
-    background:#151515;
+    border-radius:18px;
+    background:#111;
     border:1px solid #292929;
 }
 
-.photo img{
+.carousel-track{
+    display:flex;
+    transition:transform .5s ease;
+}
+
+.slide{
+    min-width:100%;
+    height:520px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#111;
+}
+
+.slide img{
     width:100%;
     height:100%;
     object-fit:cover;
-    display:block;
-    transition:.5s;
 }
 
-.photo:hover img{
-    transform:scale(1.05);
+.arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    border:1px solid #777;
+    background:rgba(0,0,0,.65);
+    color:#fff;
+    font-size:25px;
+    cursor:pointer;
+    z-index:5;
+}
+
+.arrow:hover{
+    background:#fff;
+    color:#000;
+}
+
+.prev{
+    left:15px;
+}
+
+.next{
+    right:15px;
+}
+
+.dots{
+    position:absolute;
+    bottom:18px;
+    left:0;
+    right:0;
+    text-align:center;
+}
+
+.dot{
+    display:inline-block;
+    width:9px;
+    height:9px;
+    background:#777;
+    border-radius:50%;
+    margin:4px;
+    cursor:pointer;
+}
+
+.dot.active{
+    background:#fff;
 }
 
 /* =========================
    VIDEOS
 ========================= */
 
-.video-section{
-    background:#0d0d0d;
+.videos{
+    background:#111;
 }
 
 .video-grid{
-    max-width:1200px;
-    margin:auto;
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:20px;
 }
 
 .video-box{
-    aspect-ratio:16/9;
-    background:#171717;
-    border:1px dashed #444;
-    border-radius:15px;
+    min-height:260px;
+    background:#181818;
+    border:1px solid #292929;
+    border-radius:16px;
+    overflow:hidden;
     display:flex;
     align-items:center;
     justify-content:center;
-    text-align:center;
-    padding:30px;
-    color:#888;
-}
-
-.video-box span{
-    font-size:40px;
-    display:block;
-    margin-bottom:15px;
 }
 
 .video-box iframe{
     width:100%;
-    height:100%;
+    height:260px;
     border:0;
-    border-radius:15px;
+}
+
+.video-placeholder{
+    text-align:center;
+    padding:35px;
+    color:#888;
+}
+
+.video-placeholder strong{
+    display:block;
+    color:#fff;
+    font-size:20px;
+    margin-bottom:10px;
 }
 
 /* =========================
-   REDES SOCIALES
+   REDES
 ========================= */
 
 .social{
-    text-align:center;
     background:#080808;
 }
 
 .social-grid{
-    max-width:800px;
-    margin:auto;
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    flex-wrap:wrap;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
 }
 
 .social-card{
-    min-width:200px;
-    padding:25px;
+    padding:28px;
     border:1px solid #292929;
     border-radius:15px;
     background:#111;
+    text-align:center;
     transition:.3s;
 }
 
 .social-card:hover{
     transform:translateY(-5px);
-    background:#191919;
-}
-
-.social-card strong{
-    display:block;
-    font-size:18px;
-    margin-bottom:8px;
-}
-
-.social-card small{
-    color:#888;
-}
-
-/* =========================
-   NOSOTROS
-========================= */
-
-.about{
-    background:#111;
-}
-
-.about-box{
-    max-width:1200px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:60px;
-    align-items:center;
-}
-
-.about h2{
-    font-size:50px;
-    margin-bottom:20px;
-}
-
-.about p{
-    color:#aaa;
-    line-height:1.8;
-    font-size:17px;
-}
-
-.about-list{
-    display:grid;
-    gap:15px;
-}
-
-.about-item{
-    padding:22px;
-    border-left:2px solid #fff;
     background:#181818;
 }
 
-.about-item strong{
-    display:block;
-    margin-bottom:5px;
+.social-icon{
+    font-size:35px;
+    margin-bottom:12px;
+}
+
+.social-card h3{
+    margin-bottom:6px;
+}
+
+.social-card p{
+    color:#888;
+    font-size:14px;
 }
 
 /* =========================
@@ -444,47 +440,23 @@ section{
 ========================= */
 
 .contact{
+    background:#111;
     text-align:center;
-    background:#080808;
 }
 
-.contact h2{
-    font-size:clamp(40px,6vw,75px);
-    margin-bottom:20px;
+.contact-box{
+    max-width:800px;
+    margin:auto;
 }
 
-.contact p{
+.contact-box h2{
+    font-size:50px;
+    margin-bottom:15px;
+}
+
+.contact-box p{
     color:#999;
     margin-bottom:30px;
-}
-
-.whatsapp{
-    display:inline-block;
-    background:#20c968;
-    color:#fff;
-    padding:17px 30px;
-    border-radius:8px;
-    font-weight:bold;
-}
-
-/* =========================
-   BOTON FLOTANTE
-========================= */
-
-.float-wa{
-    position:fixed;
-    right:22px;
-    bottom:22px;
-    width:62px;
-    height:62px;
-    border-radius:50%;
-    background:#20c968;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:28px;
-    z-index:999;
-    box-shadow:0 10px 30px rgba(0,0,0,.4);
 }
 
 /* =========================
@@ -492,11 +464,44 @@ section{
 ========================= */
 
 footer{
+    padding:35px 25px;
     border-top:1px solid #222;
-    padding:35px 20px;
-    text-align:center;
-    color:#666;
+    background:#050505;
+}
+
+.footer-content{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+footer p{
+    color:#777;
     font-size:13px;
+}
+
+/* =========================
+   BOTON WHATSAPP
+========================= */
+
+.whatsapp{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:62px;
+    height:62px;
+    border-radius:50%;
+    background:#20d66b;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    box-shadow:0 8px 30px rgba(0,0,0,.4);
+    z-index:999;
 }
 
 /* =========================
@@ -505,11 +510,7 @@ footer{
 
 @media(max-width:900px){
 
-    .menu{
-        display:none;
-    }
-
-    .services-grid{
+    .service-grid{
         grid-template-columns:repeat(2,1fr);
     }
 
@@ -517,36 +518,58 @@ footer{
         grid-template-columns:1fr;
     }
 
-    .about-box{
+    .social-grid{
         grid-template-columns:1fr;
     }
 
+    .hero h1{
+        letter-spacing:-4px;
+    }
 }
 
 @media(max-width:600px){
 
+    .nav{
+        min-height:62px;
+    }
+
+    .menu{
+        gap:12px;
+        font-size:12px;
+    }
+
+    .logo{
+        font-size:18px;
+    }
+
     .hero{
-        padding-left:25px;
-        padding-right:25px;
+        min-height:600px;
     }
 
     .hero h1{
+        font-size:60px;
         letter-spacing:-3px;
     }
 
-    section{
-        padding:70px 20px;
+    .hero p{
+        font-size:17px;
     }
 
-    .services-grid{
+    .service-grid{
         grid-template-columns:1fr;
     }
 
-    .photo{
-        flex-basis:280px;
-        height:360px;
+    .section-title{
+        font-size:36px;
     }
 
+    .slide{
+        height:380px;
+    }
+
+    .contact-box h2{
+        font-size:38px;
+    }
 }
 </style>
 </head>
@@ -554,21 +577,20 @@ footer{
 <body>
 
 <!-- =========================
-     MENU
+     NAVEGACION
 ========================= -->
 
 <header>
 <nav class="nav">
 
-<div class="logo">
+<a href="#" class="logo">
 ADMAN <span>by Rodríguez</span>
-</div>
+</a>
 
 <div class="menu">
 <a href="#servicios">Servicios</a>
 <a href="#trabajos">Trabajos</a>
 <a href="#videos">Videos</a>
-<a href="#nosotros">Nosotros</a>
 <a href="#contacto">Contacto</a>
 </div>
 
@@ -577,7 +599,32 @@ ADMAN <span>by Rodríguez</span>
 
 
 <!-- =========================
-     INICIO
+     CINTA
+========================= -->
+
+<div class="marquee">
+<div class="marquee-track">
+
+<span>🔧 SERVICIO TÉCNICO</span>
+<span>📱 CELULARES</span>
+<span>🎧 ACCESORIOS</span>
+<span>🛒 COMPRA Y VENTA</span>
+<span>💻 SOFTWARE</span>
+<span>⚡ SOLUCIONES TECNOLÓGICAS</span>
+
+<span>🔧 SERVICIO TÉCNICO</span>
+<span>📱 CELULARES</span>
+<span>🎧 ACCESORIOS</span>
+<span>🛒 COMPRA Y VENTA</span>
+<span>💻 SOFTWARE</span>
+<span>⚡ SOLUCIONES TECNOLÓGICAS</span>
+
+</div>
+</div>
+
+
+<!-- =========================
+     HERO
 ========================= -->
 
 <section class="hero">
@@ -585,16 +632,16 @@ ADMAN <span>by Rodríguez</span>
 <div class="hero-content">
 
 <div class="location">
-Moyobamba · San Martín
+📍 Moyobamba · San Martín
 </div>
 
 <h1>
-ADMAN<br>
+ADMAN
 <span>by Rodríguez.</span>
 </h1>
 
 <p>
-Tecnología, celulares, accesorios y servicio técnico.
+Tecnología, celulares y servicio técnico.
 Soluciones confiables para mantenerte conectado.
 </p>
 
@@ -606,7 +653,8 @@ target="_blank">
 WhatsApp
 </a>
 
-<a class="btn" href="#servicios">
+<a class="btn btn-secondary"
+href="#servicios">
 Ver servicios
 </a>
 
@@ -618,104 +666,55 @@ Ver servicios
 
 
 <!-- =========================
-     CINTA
-========================= -->
-
-<div class="ticker">
-
-<div class="ticker-track">
-
-<span>🔧 SERVICIO TÉCNICO</span>
-<span>📱 REPARACIÓN DE CELULARES</span>
-<span>🖥️ SOFTWARE</span>
-<span>🔋 CAMBIO DE BATERÍAS</span>
-<span>📲 CAMBIO DE PANTALLAS</span>
-<span>🛡️ MICAS Y PROTECCIÓN</span>
-<span>🎧 ACCESORIOS</span>
-<span>🛒 VENTA DE CELULARES</span>
-
-<span>🔧 SERVICIO TÉCNICO</span>
-<span>📱 REPARACIÓN DE CELULARES</span>
-<span>🖥️ SOFTWARE</span>
-<span>🔋 CAMBIO DE BATERÍAS</span>
-<span>📲 CAMBIO DE PANTALLAS</span>
-<span>🛡️ MICAS Y PROTECCIÓN</span>
-<span>🎧 ACCESORIOS</span>
-<span>🛒 VENTA DE CELULARES</span>
-
-</div>
-
-</div>
-
-
-<!-- =========================
      SERVICIOS
 ========================= -->
 
 <section class="services" id="servicios">
 
-<div class="section-title">
+<div class="container">
 
-<small>Lo que hacemos</small>
+<h2 class="section-title">
+Nuestros servicios
+</h2>
 
-<h2>Servicios técnicos.</h2>
-
-<p>
-Trabajamos con equipos Apple y Android, ofreciendo soluciones
-para problemas de hardware, software y mantenimiento.
+<p class="section-text">
+Soluciones tecnológicas para celulares y dispositivos móviles.
 </p>
 
+<div class="service-grid">
+
+<div class="service-card">
+<div class="service-icon">🔧</div>
+<h3>Servicio Técnico</h3>
+<p>
+Reparación, diagnóstico y mantenimiento de celulares.
+</p>
 </div>
 
-
-<div class="services-grid">
-
-<div class="service">
-<div class="icon">📱</div>
-<h3>Pantallas</h3>
-<p>Cambio de pantallas, módulos, AMOLED, Incell, IPS y reparación.</p>
+<div class="service-card">
+<div class="service-icon">📱</div>
+<h3>Celulares</h3>
+<p>
+Venta de celulares y equipos tecnológicos.
+</p>
 </div>
 
-<div class="service">
-<div class="icon">🔋</div>
-<h3>Baterías</h3>
-<p>Cambio y revisión de baterías para diferentes modelos.</p>
-</div>
-
-<div class="service">
-<div class="icon">⚡</div>
-<h3>Centro de carga</h3>
-<p>Reparación de conectores y problemas de carga.</p>
-</div>
-
-<div class="service">
-<div class="icon">💻</div>
-<h3>Software</h3>
-<p>Diagnóstico, configuración, actualización y soluciones de software.</p>
-</div>
-
-<div class="service">
-<div class="icon">🔬</div>
-<h3>Microsoldadura</h3>
-<p>Diagnóstico y reparación de componentes electrónicos.</p>
-</div>
-
-<div class="service">
-<div class="icon">🧰</div>
-<h3>Reparación</h3>
-<p>Servicio técnico especializado para celulares.</p>
-</div>
-
-<div class="service">
-<div class="icon">🛡️</div>
-<h3>Micas</h3>
-<p>Instalación de micas y protección para tu equipo.</p>
-</div>
-
-<div class="service">
-<div class="icon">🎧</div>
+<div class="service-card">
+<div class="service-icon">🎧</div>
 <h3>Accesorios</h3>
-<p>Cargadores, cables, audífonos, protectores y más.</p>
+<p>
+Micas, cargadores, cables, audífonos y accesorios.
+</p>
+</div>
+
+<div class="service-card">
+<div class="service-icon">💻</div>
+<h3>Software</h3>
+<p>
+Soluciones de software y herramientas para técnicos.
+</p>
+</div>
+
 </div>
 
 </div>
@@ -724,88 +723,71 @@ para problemas de hardware, software y mantenimiento.
 
 
 <!-- =========================
-     GALERÍA
+     GALERIA
 ========================= -->
 
-<section id="trabajos">
+<section class="gallery" id="trabajos">
 
-<div class="section-title">
+<div class="container">
 
-<small>Nuestro trabajo</small>
+<h2 class="section-title">
+Nuestros trabajos
+</h2>
 
-<h2>Reparaciones reales.</h2>
-
-<p>
-Una muestra de algunos trabajos realizados por nuestro servicio técnico.
-Iremos agregando más fotografías constantemente.
+<p class="section-text">
+Una muestra de reparaciones y trabajos realizados por nuestro equipo.
 </p>
 
+<div class="carousel">
+
+<div class="carousel-track" id="carouselTrack">
+
+<div class="slide">
+<img src="activos/reparación-1.jpg" alt="Reparación de celular">
 </div>
 
-
-<div class="gallery">
-
-<div class="photo-slider">
-
-<!--
-==========================================
-FOTOS
-==========================================
-
-PARA AGREGAR MÁS FOTOS:
-
-1. Sube la foto a la carpeta "assets".
-2. Copia uno de estos bloques.
-3. Cambia el nombre del archivo.
-
-Ejemplo:
-
-<div class="photo">
-<img src="assets/mi-foto.jpg" alt="Reparación ADMAN">
+<div class="slide">
+<img src="activos/reparación-2.jpg" alt="Servicio técnico">
 </div>
 
-==========================================
--->
-
-<div class="photo">
-<img src="assets/01.jpg" alt="Reparación de celular">
+<div class="slide">
+<img src="activos/reparación-3.jpg" alt="Reparación de placa">
 </div>
 
-<div class="photo">
-<img src="assets/02.jpg" alt="Reparación de placa">
+<div class="slide">
+<img src="activos/reparación-4.jpg" alt="Reparación de celular">
 </div>
 
-<div class="photo">
-<img src="assets/03.jpg" alt="Servicio técnico">
+<div class="slide">
+<img src="activos/reparación-5.jpg" alt="Servicio técnico ADMAN">
 </div>
 
-<div class="photo">
-<img src="assets/04.jpg" alt="Reparación de celular">
+<div class="slide">
+<img src="activos/reparación-6.jpg" alt="Reparación de celular">
 </div>
 
-<div class="photo">
-<img src="assets/05.jpg" alt="Reparación ADMAN">
+<div class="slide">
+<img src="activos/reparación-7.jpg" alt="Servicio técnico">
 </div>
 
-<div class="photo">
-<img src="assets/06.jpg" alt="Servicio técnico ADMAN">
+<div class="slide">
+<img src="activos/reparación-8.jpg" alt="Reparación de placa">
 </div>
 
-<div class="photo">
-<img src="assets/07.jpg" alt="Reparación de pantalla">
+<div class="slide">
+<img src="activos/reparación-9.jpg" alt="Reparación de celular">
 </div>
 
-<div class="photo">
-<img src="assets/08.jpg" alt="Reparación de placa">
+<div class="slide">
+<img src="activos/reparación-10.jpg" alt="Servicio técnico ADMAN">
 </div>
 
-<div class="photo">
-<img src="assets/09.jpg" alt="Servicio técnico">
 </div>
 
-<div class="photo">
-<img src="assets/10.jpg" alt="Reparación de celular">
-</div>
+<button class="arrow prev" onclick="mover(-1)">‹</button>
+<button class="arrow next" onclick="mover(1)">›</button>
+
+<div class="dots" id="dots"></div>
 
 </div>
 
@@ -818,65 +800,67 @@ Ejemplo:
      VIDEOS
 ========================= -->
 
-<section class="video-section" id="videos">
+<section class="videos" id="videos">
 
-<div class="section-title">
+<div class="container">
 
-<small>Contenido</small>
+<h2 class="section-title">
+Videos
+</h2>
 
-<h2>Videos y trabajos.</h2>
+<p class="section-text">
+Aquí podrás mostrar nuestros trabajos, reparaciones, promociones y contenido de redes sociales.
+</p>
+
+<div class="video-grid">
+
+<!-- VIDEO 1 -->
+<div class="video-box">
+
+<div class="video-placeholder">
+
+<strong>🎥 Próximo video</strong>
 
 <p>
-Aquí podrás mostrar reparaciones, procesos, promociones,
-videos de TikTok, Instagram, Facebook o YouTube.
+Espacio preparado para agregar un video de YouTube, TikTok o Facebook.
 </p>
 
 </div>
 
+</div>
 
-<div class="video-grid">
 
-<!--
-==========================================
-VIDEO 1
-==========================================
-
-CUANDO TENGAS UN VIDEO DE YOUTUBE:
-
-Reemplaza este bloque por:
-
-<iframe
-src="https://www.youtube.com/embed/ID_DEL_VIDEO"
-allowfullscreen>
-</iframe>
-
-==========================================
--->
-
+<!-- VIDEO 2 -->
 <div class="video-box">
-<div>
-<span>▶</span>
-<strong>VIDEO 01</strong>
-<p>Espacio preparado para agregar video.</p>
+
+<div class="video-placeholder">
+
+<strong>🎥 Próximo video</strong>
+
+<p>
+Aquí podrás agregar otro video posteriormente.
+</p>
+
 </div>
+
 </div>
 
 
+<!-- VIDEO 3 -->
 <div class="video-box">
-<div>
-<span>▶</span>
-<strong>VIDEO 02</strong>
-<p>Espacio preparado para agregar video.</p>
-</div>
+
+<div class="video-placeholder">
+
+<strong>🎥 Próximo video</strong>
+
+<p>
+Este espacio queda reservado para nuevo contenido.
+</p>
+
 </div>
 
-
-<div class="video-box">
-<div>
-<span>▶</span>
-<strong>VIDEO 03</strong>
-<p>Espacio preparado para agregar video.</p>
 </div>
+
 </div>
 
 </div>
@@ -885,104 +869,71 @@ allowfullscreen>
 
 
 <!-- =========================
-     REDES
+     REDES SOCIALES
 ========================= -->
 
 <section class="social">
 
-<div class="section-title">
+<div class="container">
 
-<small>Síguenos</small>
+<h2 class="section-title">
+Síguenos
+</h2>
 
-<h2>Estamos en redes.</h2>
-
-<p>
-Encuentra nuestras novedades, trabajos y promociones.
+<p class="section-text">
+Encuéntranos también en nuestras redes sociales.
 </p>
-
-</div>
-
 
 <div class="social-grid">
 
-<!-- CAMBIA LOS ENLACES CUANDO LOS TENGAS -->
 
 <a class="social-card"
 href="#"
-target="_blank">
+target="_blank"
+id="tiktokLink">
 
-<strong>🎵 TikTok</strong>
-<small>@ADMAN</small>
+<div class="social-icon">🎵</div>
 
-</a>
-
-
-<a class="social-card"
-href="#"
-target="_blank">
-
-<strong>📘 Facebook</strong>
-<small>ADMAN by Rodríguez</small>
-
-</a>
-
-
-<a class="social-card"
-href="#"
-target="_blank">
-
-<strong>📸 Instagram</strong>
-<small>@ADMAN</small>
-
-</a>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     NOSOTROS
-========================= -->
-
-<section class="about" id="nosotros">
-
-<div class="about-box">
-
-<div>
-
-<h2>ADMAN<br>by Rodríguez.</h2>
+<h3>TikTok</h3>
 
 <p>
-Somos una empresa dedicada a la tecnología, reparación de celulares,
-venta de equipos y accesorios, buscando brindar soluciones confiables
-a nuestros clientes en Moyobamba y San Martín.
+Videos, reparaciones y novedades.
 </p>
 
-</div>
+</a>
 
 
-<div class="about-list">
+<a class="social-card"
+href="#"
+target="_blank"
+id="facebookLink">
 
-<div class="about-item">
-<strong>01 · Tecnología</strong>
-Soluciones para equipos Apple y Android.
-</div>
+<div class="social-icon">👍</div>
 
-<div class="about-item">
-<strong>02 · Servicio técnico</strong>
-Diagnóstico y reparación profesional.
-</div>
+<h3>Facebook</h3>
 
-<div class="about-item">
-<strong>03 · Accesorios</strong>
-Todo lo necesario para proteger y complementar tu equipo.
-</div>
+<p>
+Promociones, productos y servicios.
+</p>
 
-<div class="about-item">
-<strong>04 · Confianza</strong>
-Atención cercana y responsable.
-</div>
+</a>
+
+
+<a class="social-card"
+href="#"
+target="_blank"
+id="instagramLink">
+
+<div class="social-icon">📸</div>
+
+<h3>Instagram</h3>
+
+<p>
+Fotos y trabajos de ADMAN.
+</p>
+
+</a>
+
 
 </div>
 
@@ -997,34 +948,25 @@ Atención cercana y responsable.
 
 <section class="contact" id="contacto">
 
-<h2>¿Necesitas reparar<br>tu celular?</h2>
+<div class="contact-box">
+
+<h2>
+¿Necesitas una reparación?
+</h2>
 
 <p>
-Escríbenos y consulta por tu equipo.
+Escríbenos y consulta por nuestros servicios, celulares y accesorios.
 </p>
 
-<a class="whatsapp"
+<a class="btn btn-primary"
 href="https://wa.me/51927810633"
 target="_blank">
-
-💬 Escribir por WhatsApp
-
+💬 Contactar por WhatsApp
 </a>
+
+</div>
 
 </section>
-
-
-<!-- =========================
-     BOTÓN WHATSAPP
-========================= -->
-
-<a class="float-wa"
-href="https://wa.me/51927810633"
-target="_blank">
-
-☎
-
-</a>
 
 
 <!-- =========================
@@ -1033,13 +975,139 @@ target="_blank">
 
 <footer>
 
-ADMAN by Rodríguez · Tecnología y Servicio Técnico · Moyobamba, San Martín
+<div class="footer-content">
 
-<br><br>
+<p>
+© 2026 ADMAN by Rodríguez
+</p>
 
-© 2026 ADMAN by Rodríguez. Todos los derechos reservados.
+<p>
+Tecnología · Celulares · Servicio Técnico
+</p>
+
+<p>
+Moyobamba · San Martín
+</p>
+
+</div>
 
 </footer>
+
+
+<!-- =========================
+     WHATSAPP
+========================= -->
+
+<a class="whatsapp"
+href="https://wa.me/51927810633"
+target="_blank"
+aria-label="WhatsApp">
+☎
+</a>
+
+
+<script>
+
+/* =========================
+   CARRUSEL
+========================= */
+
+let actual = 0;
+
+const track = document.getElementById("carouselTrack");
+const slides = document.querySelectorAll(".slide");
+const dots = document.getElementById("dots");
+
+slides.forEach((slide,index)=>{
+
+    const dot = document.createElement("span");
+
+    dot.className = "dot";
+
+    dot.onclick = ()=>{
+        actual = index;
+        actualizarCarrusel();
+    };
+
+    dots.appendChild(dot);
+
+});
+
+
+function actualizarCarrusel(){
+
+    track.style.transform =
+        "translateX(-" + (actual * 100) + "%)";
+
+    document.querySelectorAll(".dot").forEach((dot,index)=>{
+
+        dot.classList.toggle(
+            "active",
+            index === actual
+        );
+
+    });
+
+}
+
+
+function mover(direccion){
+
+    actual += direccion;
+
+    if(actual < 0){
+        actual = slides.length - 1;
+    }
+
+    if(actual >= slides.length){
+        actual = 0;
+    }
+
+    actualizarCarrusel();
+
+}
+
+
+/* CAMBIO AUTOMATICO */
+
+setInterval(()=>{
+
+    mover(1);
+
+},5000);
+
+
+actualizarCarrusel();
+
+
+/* =========================
+   REDES SOCIALES
+   MÁS ADELANTE SE PUEDEN
+   CAMBIAR AQUÍ
+========================= */
+
+const REDES = {
+
+    tiktok: "",
+    facebook: "",
+    instagram: ""
+
+};
+
+
+if(REDES.tiktok){
+    document.getElementById("tiktokLink").href = REDES.tiktok;
+}
+
+if(REDES.facebook){
+    document.getElementById("facebookLink").href = REDES.facebook;
+}
+
+if(REDES.instagram){
+    document.getElementById("instagramLink").href = REDES.instagram;
+}
+
+</script>
 
 </body>
 </html>
