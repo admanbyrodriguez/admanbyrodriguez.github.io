@@ -1,0 +1,509 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ADMAN by Rodríguez - Celulares, servicio técnico, accesorios y soluciones tecnológicas en Moyobamba, San Martín.">
+  <title>ADMAN by Rodríguez | Tecnología en Moyobamba</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f7f7;
+      color: #171717;
+      line-height: 1.6;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(10, 10, 10, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav {
+      max-width: 1150px;
+      margin: auto;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 22px;
+    }
+
+    .logo {
+      color: white;
+      font-size: 21px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      font-weight: 300;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      opacity: 0.65;
+    }
+
+    .hero {
+      min-height: 720px;
+      padding: 150px 22px 90px;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.10), transparent 30%),
+        linear-gradient(135deg, #080808, #252525);
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 1150px;
+      width: 100%;
+      margin: auto;
+    }
+
+    .tag {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 8px 15px;
+      border-radius: 30px;
+      font-size: 13px;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: clamp(48px, 8vw, 92px);
+      line-height: 0.98;
+      max-width: 900px;
+      letter-spacing: -3px;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: #d0d0d0;
+      max-width: 650px;
+      margin-bottom: 35px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 23px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .btn-primary {
+      background: white;
+      color: #111;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.35);
+      color: white;
+    }
+
+    section {
+      padding: 90px 22px;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: 40px;
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+    }
+
+    .section-text {
+      color: #666;
+      max-width: 650px;
+      margin-bottom: 40px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .service {
+      background: white;
+      padding: 30px 24px;
+      border: 1px solid #e5e5e5;
+      border-radius: 14px;
+      transition: transform .2s;
+    }
+
+    .service:hover {
+      transform: translateY(-5px);
+    }
+
+    .icon {
+      font-size: 30px;
+      margin-bottom: 18px;
+    }
+
+    .service h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .service p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .about {
+      background: #111;
+      color: white;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about p {
+      color: #bbb;
+      margin-bottom: 20px;
+    }
+
+    .advantages {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .advantage {
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 22px;
+    }
+
+    .contact {
+      text-align: center;
+      background: white;
+    }
+
+    .contact-box {
+      max-width: 750px;
+      margin: 35px auto 0;
+      padding: 45px 25px;
+      border: 1px solid #ddd;
+      border-radius: 18px;
+    }
+
+    .contact-box p {
+      color: #666;
+      margin: 12px 0 25px;
+    }
+
+    .whatsapp {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 2000;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: #25D366;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 30px;
+      box-shadow: 0 8px 25px rgba(0,0,0,.25);
+      transition: transform .2s;
+    }
+
+    .whatsapp:hover {
+      transform: scale(1.08);
+    }
+
+    footer {
+      background: #080808;
+      color: #aaa;
+      padding: 35px 22px;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    @media (max-width: 850px) {
+      nav {
+        display: none;
+      }
+
+      .services {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero {
+        min-height: 650px;
+      }
+
+      h1 {
+        font-size: 52px;
+        letter-spacing: -2px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+
+      .advantages {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 70px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="nav">
+      <div class="logo">ADMAN <span>by Rodríguez</span></div>
+
+      <nav>
+        <a href="#servicios">Servicios</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="hero-content">
+
+        <div class="tag">📍 Moyobamba · San Martín</div>
+
+        <h1>ADMAN<br>by Rodríguez.</h1>
+
+        <p>
+          Tecnología, celulares y servicio técnico.
+          Soluciones confiables para mantenerte conectado.
+        </p>
+
+        <div class="buttons">
+          <a class="btn btn-primary"
+             href="https://wa.me/51927810633?text=Hola%20ADMAN,%20quiero%20hacer%20una%20consulta."
+             target="_blank">
+            WhatsApp
+          </a>
+
+          <a class="btn btn-secondary" href="#servicios">
+            Ver servicios
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section id="servicios">
+      <div class="container">
+
+        <h2 class="section-title">¿Qué hacemos?</h2>
+
+        <p class="section-text">
+          Todo lo que necesitas para tus equipos tecnológicos,
+          reunido en un solo lugar.
+        </p>
+
+        <div class="services">
+
+          <div class="service">
+            <div class="icon">🔧</div>
+            <h3>Servicio técnico</h3>
+            <p>
+              Reparación y mantenimiento de equipos
+              Apple y Android.
+            </p>
+          </div>
+
+          <div class="service">
+            <div class="icon">📱</div>
+            <h3>Celulares</h3>
+            <p>
+              Venta de celulares y soluciones para
+              renovar tu equipo.
+            </p>
+          </div>
+
+          <div class="service">
+            <div class="icon">🎧</div>
+            <h3>Accesorios</h3>
+            <p>
+              Micas, cargadores, audífonos y accesorios
+              para tu celular.
+            </p>
+          </div>
+
+          <div class="service">
+            <div class="icon">💻</div>
+            <h3>Software</h3>
+            <p>
+              Soluciones de software y herramientas
+              tecnológicas.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <section class="about" id="nosotros">
+      <div class="container">
+
+        <div class="about-grid">
+
+          <div>
+            <div class="tag">ADMAN by Rodríguez</div>
+
+            <h2 class="section-title">
+              Tecnología con respaldo y confianza.
+            </h2>
+
+            <p>
+              Somos una marca tecnológica enfocada en celulares,
+              servicio técnico y soluciones para nuestros clientes.
+            </p>
+
+            <p>
+              Nuestro objetivo es convertir a ADMAN en una de las
+              marcas tecnológicas más reconocidas de Moyobamba.
+            </p>
+          </div>
+
+          <div class="advantages">
+
+            <div class="advantage">
+              <strong>✓ Atención personalizada</strong>
+            </div>
+
+            <div class="advantage">
+              <strong>✓ Servicio técnico</strong>
+            </div>
+
+            <div class="advantage">
+              <strong>✓ Soluciones confiables</strong>
+            </div>
+
+            <div class="advantage">
+              <strong>✓ Atención en Moyobamba</strong>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="contact" id="contacto">
+      <div class="container">
+
+        <h2 class="section-title">
+          ¿Necesitas ayuda con tu celular?
+        </h2>
+
+        <div class="contact-box">
+
+          <p>
+            Escríbenos por WhatsApp y cuéntanos qué necesitas.
+          </p>
+
+          <a class="btn btn-primary"
+             href="https://wa.me/51927810633?text=Hola%20ADMAN,%20quiero%20cotizar%20un%20servicio."
+             target="_blank">
+            📲 Cotizar por WhatsApp
+          </a>
+
+          <p style="margin-top:25px;">
+            📍 Moyobamba, San Martín · Perú
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <a class="whatsapp"
+     href="https://wa.me/51927810633?text=Hola%20ADMAN,%20quiero%20hacer%20una%20consulta."
+     target="_blank"
+     aria-label="Contactar por WhatsApp">
+    ☎
+  </a>
+
+
+  <footer>
+    <strong>ADMAN by Rodríguez</strong><br>
+    Tecnología, celulares y servicio técnico.<br><br>
+    © 2026 ADMAN by Rodríguez · Moyobamba, San Martín
+  </footer>
+
+</body>
+</html>
+```
