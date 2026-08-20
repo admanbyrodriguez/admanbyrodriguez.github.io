@@ -1,509 +1,1045 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ADMAN by Rodríguez - Celulares, servicio técnico, accesorios y soluciones tecnológicas en Moyobamba, San Martín.">
-  <title>ADMAN by Rodríguez | Tecnología en Moyobamba</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+<title>ADMAN by Rodríguez | Tecnología y Servicio Técnico</title>
+
+<meta name="description" content="ADMAN by Rodríguez - Tecnología, celulares, accesorios y servicio técnico en Moyobamba, San Martín.">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#080808;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:72px;
+    background:rgba(5,5,5,.94);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid #222;
+    z-index:1000;
+}
+
+.nav{
+    max-width:1200px;
+    height:100%;
+    margin:auto;
+    padding:0 25px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:800;
+    letter-spacing:-1px;
+}
+
+.logo span{
+    font-weight:400;
+}
+
+.menu{
+    display:flex;
+    gap:30px;
+    font-size:14px;
+}
+
+.menu a{
+    opacity:.8;
+    transition:.3s;
+}
+
+.menu a:hover{
+    opacity:1;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+    padding:150px 8% 80px;
+    display:flex;
+    align-items:center;
+    background:
+    radial-gradient(circle at 80% 30%,#242424 0%,#101010 35%,#080808 70%);
+}
+
+.hero-content{
+    max-width:900px;
+}
+
+.location{
+    display:inline-block;
+    padding:10px 18px;
+    border:1px solid #444;
+    border-radius:30px;
+    font-size:14px;
+    margin-bottom:30px;
+}
+
+.location::before{
+    content:"●";
+    color:#ff3b30;
+    margin-right:8px;
+}
+
+.hero h1{
+    font-size:clamp(55px,9vw,120px);
+    line-height:.88;
+    letter-spacing:-6px;
+    margin-bottom:30px;
+}
+
+.hero h1 span{
+    font-weight:400;
+}
+
+.hero p{
+    max-width:680px;
+    color:#ccc;
+    font-size:20px;
+    line-height:1.6;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
+    margin-top:35px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:16px 25px;
+    border-radius:8px;
+    border:1px solid #555;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:#fff;
+    color:#000;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+/* =========================
+   CINTA DE SERVICIOS
+========================= */
+
+.ticker{
+    overflow:hidden;
+    border-top:1px solid #222;
+    border-bottom:1px solid #222;
+    background:#111;
+    white-space:nowrap;
+}
+
+.ticker-track{
+    display:inline-block;
+    padding:22px 0;
+    animation:scroll 25s linear infinite;
+}
+
+.ticker span{
+    margin:0 30px;
+    font-size:14px;
+    font-weight:bold;
+    color:#ddd;
+}
+
+@keyframes scroll{
+    from{transform:translateX(0)}
+    to{transform:translateX(-50%)}
+}
+
+/* =========================
+   SECCIONES
+========================= */
+
+section{
+    padding:100px 7%;
+}
+
+.section-title{
+    max-width:1200px;
+    margin:0 auto 50px;
+}
+
+.section-title small{
+    color:#999;
+    text-transform:uppercase;
+    letter-spacing:3px;
+}
+
+.section-title h2{
+    font-size:clamp(35px,5vw,65px);
+    margin-top:12px;
+    letter-spacing:-2px;
+}
+
+.section-title p{
+    color:#999;
+    max-width:650px;
+    margin-top:15px;
+    line-height:1.6;
+}
+
+/* =========================
+   SERVICIOS
+========================= */
+
+.services{
+    background:#0d0d0d;
+}
+
+.services-grid{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.service{
+    min-height:230px;
+    padding:30px;
+    border:1px solid #272727;
+    border-radius:15px;
+    background:linear-gradient(145deg,#171717,#0d0d0d);
+    transition:.3s;
+}
+
+.service:hover{
+    transform:translateY(-7px);
+    border-color:#555;
+}
+
+.icon{
+    font-size:35px;
+    margin-bottom:25px;
+}
+
+.service h3{
+    font-size:20px;
+    margin-bottom:12px;
+}
+
+.service p{
+    color:#999;
+    line-height:1.5;
+}
+
+/* =========================
+   FOTOS
+========================= */
+
+.gallery{
+    max-width:1200px;
+    margin:auto;
+}
+
+.photo-slider{
+    display:flex;
+    gap:20px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    padding-bottom:20px;
+}
+
+.photo-slider::-webkit-scrollbar{
+    height:7px;
+}
+
+.photo-slider::-webkit-scrollbar-thumb{
+    background:#444;
+    border-radius:20px;
+}
+
+.photo{
+    flex:0 0 330px;
+    height:420px;
+    border-radius:18px;
+    overflow:hidden;
+    scroll-snap-align:start;
+    background:#151515;
+    border:1px solid #292929;
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:.5s;
+}
+
+.photo:hover img{
+    transform:scale(1.05);
+}
+
+/* =========================
+   VIDEOS
+========================= */
+
+.video-section{
+    background:#0d0d0d;
+}
+
+.video-grid{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.video-box{
+    aspect-ratio:16/9;
+    background:#171717;
+    border:1px dashed #444;
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:30px;
+    color:#888;
+}
+
+.video-box span{
+    font-size:40px;
+    display:block;
+    margin-bottom:15px;
+}
+
+.video-box iframe{
+    width:100%;
+    height:100%;
+    border:0;
+    border-radius:15px;
+}
+
+/* =========================
+   REDES SOCIALES
+========================= */
+
+.social{
+    text-align:center;
+    background:#080808;
+}
+
+.social-grid{
+    max-width:800px;
+    margin:auto;
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.social-card{
+    min-width:200px;
+    padding:25px;
+    border:1px solid #292929;
+    border-radius:15px;
+    background:#111;
+    transition:.3s;
+}
+
+.social-card:hover{
+    transform:translateY(-5px);
+    background:#191919;
+}
+
+.social-card strong{
+    display:block;
+    font-size:18px;
+    margin-bottom:8px;
+}
+
+.social-card small{
+    color:#888;
+}
+
+/* =========================
+   NOSOTROS
+========================= */
+
+.about{
+    background:#111;
+}
+
+.about-box{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.about h2{
+    font-size:50px;
+    margin-bottom:20px;
+}
+
+.about p{
+    color:#aaa;
+    line-height:1.8;
+    font-size:17px;
+}
+
+.about-list{
+    display:grid;
+    gap:15px;
+}
+
+.about-item{
+    padding:22px;
+    border-left:2px solid #fff;
+    background:#181818;
+}
+
+.about-item strong{
+    display:block;
+    margin-bottom:5px;
+}
+
+/* =========================
+   CONTACTO
+========================= */
+
+.contact{
+    text-align:center;
+    background:#080808;
+}
+
+.contact h2{
+    font-size:clamp(40px,6vw,75px);
+    margin-bottom:20px;
+}
+
+.contact p{
+    color:#999;
+    margin-bottom:30px;
+}
+
+.whatsapp{
+    display:inline-block;
+    background:#20c968;
+    color:#fff;
+    padding:17px 30px;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+/* =========================
+   BOTON FLOTANTE
+========================= */
+
+.float-wa{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    width:62px;
+    height:62px;
+    border-radius:50%;
+    background:#20c968;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    z-index:999;
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    border-top:1px solid #222;
+    padding:35px 20px;
+    text-align:center;
+    color:#666;
+    font-size:13px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+    .menu{
+        display:none;
     }
 
-    html {
-      scroll-behavior: smooth;
+    .services-grid{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f7f7f7;
-      color: #171717;
-      line-height: 1.6;
+    .video-grid{
+        grid-template-columns:1fr;
     }
 
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      background: rgba(10, 10, 10, 0.94);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+    .about-box{
+        grid-template-columns:1fr;
     }
 
-    .nav {
-      max-width: 1150px;
-      margin: auto;
-      height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 22px;
+}
+
+@media(max-width:600px){
+
+    .hero{
+        padding-left:25px;
+        padding-right:25px;
     }
 
-    .logo {
-      color: white;
-      font-size: 21px;
-      font-weight: 700;
-      letter-spacing: 1px;
+    .hero h1{
+        letter-spacing:-3px;
     }
 
-    .logo span {
-      font-weight: 300;
+    section{
+        padding:70px 20px;
     }
 
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin-left: 25px;
-      font-size: 14px;
+    .services-grid{
+        grid-template-columns:1fr;
     }
 
-    nav a:hover {
-      opacity: 0.65;
+    .photo{
+        flex-basis:280px;
+        height:360px;
     }
 
-    .hero {
-      min-height: 720px;
-      padding: 150px 22px 90px;
-      display: flex;
-      align-items: center;
-      background:
-        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.10), transparent 30%),
-        linear-gradient(135deg, #080808, #252525);
-      color: white;
-    }
-
-    .hero-content {
-      max-width: 1150px;
-      width: 100%;
-      margin: auto;
-    }
-
-    .tag {
-      display: inline-block;
-      border: 1px solid rgba(255,255,255,0.3);
-      padding: 8px 15px;
-      border-radius: 30px;
-      font-size: 13px;
-      margin-bottom: 25px;
-    }
-
-    h1 {
-      font-size: clamp(48px, 8vw, 92px);
-      line-height: 0.98;
-      max-width: 900px;
-      letter-spacing: -3px;
-      margin-bottom: 25px;
-    }
-
-    .hero p {
-      font-size: 20px;
-      color: #d0d0d0;
-      max-width: 650px;
-      margin-bottom: 35px;
-    }
-
-    .buttons {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 14px 23px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 15px;
-    }
-
-    .btn-primary {
-      background: white;
-      color: #111;
-    }
-
-    .btn-secondary {
-      border: 1px solid rgba(255,255,255,0.35);
-      color: white;
-    }
-
-    section {
-      padding: 90px 22px;
-    }
-
-    .container {
-      max-width: 1150px;
-      margin: auto;
-    }
-
-    .section-title {
-      font-size: 40px;
-      margin-bottom: 12px;
-      letter-spacing: -1px;
-    }
-
-    .section-text {
-      color: #666;
-      max-width: 650px;
-      margin-bottom: 40px;
-    }
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .service {
-      background: white;
-      padding: 30px 24px;
-      border: 1px solid #e5e5e5;
-      border-radius: 14px;
-      transition: transform .2s;
-    }
-
-    .service:hover {
-      transform: translateY(-5px);
-    }
-
-    .icon {
-      font-size: 30px;
-      margin-bottom: 18px;
-    }
-
-    .service h3 {
-      margin-bottom: 10px;
-      font-size: 20px;
-    }
-
-    .service p {
-      color: #666;
-      font-size: 14px;
-    }
-
-    .about {
-      background: #111;
-      color: white;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .about p {
-      color: #bbb;
-      margin-bottom: 20px;
-    }
-
-    .advantages {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-    }
-
-    .advantage {
-      border: 1px solid #333;
-      border-radius: 12px;
-      padding: 22px;
-    }
-
-    .contact {
-      text-align: center;
-      background: white;
-    }
-
-    .contact-box {
-      max-width: 750px;
-      margin: 35px auto 0;
-      padding: 45px 25px;
-      border: 1px solid #ddd;
-      border-radius: 18px;
-    }
-
-    .contact-box p {
-      color: #666;
-      margin: 12px 0 25px;
-    }
-
-    .whatsapp {
-      position: fixed;
-      right: 22px;
-      bottom: 22px;
-      z-index: 2000;
-      width: 62px;
-      height: 62px;
-      border-radius: 50%;
-      background: #25D366;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      font-size: 30px;
-      box-shadow: 0 8px 25px rgba(0,0,0,.25);
-      transition: transform .2s;
-    }
-
-    .whatsapp:hover {
-      transform: scale(1.08);
-    }
-
-    footer {
-      background: #080808;
-      color: #aaa;
-      padding: 35px 22px;
-      text-align: center;
-      font-size: 13px;
-    }
-
-    footer strong {
-      color: white;
-    }
-
-    @media (max-width: 850px) {
-      nav {
-        display: none;
-      }
-
-      .services {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 560px) {
-      .hero {
-        min-height: 650px;
-      }
-
-      h1 {
-        font-size: 52px;
-        letter-spacing: -2px;
-      }
-
-      .hero p {
-        font-size: 17px;
-      }
-
-      .services {
-        grid-template-columns: 1fr;
-      }
-
-      .advantages {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 70px 18px;
-      }
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="nav">
-      <div class="logo">ADMAN <span>by Rodríguez</span></div>
+<!-- =========================
+     MENU
+========================= -->
 
-      <nav>
-        <a href="#servicios">Servicios</a>
-        <a href="#nosotros">Nosotros</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
-    </div>
-  </header>
+<header>
+<nav class="nav">
 
-  <main>
+<div class="logo">
+ADMAN <span>by Rodríguez</span>
+</div>
 
-    <section class="hero">
-      <div class="hero-content">
+<div class="menu">
+<a href="#servicios">Servicios</a>
+<a href="#trabajos">Trabajos</a>
+<a href="#videos">Videos</a>
+<a href="#nosotros">Nosotros</a>
+<a href="#contacto">Contacto</a>
+</div>
 
-        <div class="tag">📍 Moyobamba · San Martín</div>
-
-        <h1>ADMAN<br>by Rodríguez.</h1>
-
-        <p>
-          Tecnología, celulares y servicio técnico.
-          Soluciones confiables para mantenerte conectado.
-        </p>
-
-        <div class="buttons">
-          <a class="btn btn-primary"
-             href="https://wa.me/51927810633?text=Hola%20ADMAN,%20quiero%20hacer%20una%20consulta."
-             target="_blank">
-            WhatsApp
-          </a>
-
-          <a class="btn btn-secondary" href="#servicios">
-            Ver servicios
-          </a>
-        </div>
-
-      </div>
-    </section>
+</nav>
+</header>
 
 
-    <section id="servicios">
-      <div class="container">
+<!-- =========================
+     INICIO
+========================= -->
 
-        <h2 class="section-title">¿Qué hacemos?</h2>
+<section class="hero">
 
-        <p class="section-text">
-          Todo lo que necesitas para tus equipos tecnológicos,
-          reunido en un solo lugar.
-        </p>
+<div class="hero-content">
 
-        <div class="services">
+<div class="location">
+Moyobamba · San Martín
+</div>
 
-          <div class="service">
-            <div class="icon">🔧</div>
-            <h3>Servicio técnico</h3>
-            <p>
-              Reparación y mantenimiento de equipos
-              Apple y Android.
-            </p>
-          </div>
+<h1>
+ADMAN<br>
+<span>by Rodríguez.</span>
+</h1>
 
-          <div class="service">
-            <div class="icon">📱</div>
-            <h3>Celulares</h3>
-            <p>
-              Venta de celulares y soluciones para
-              renovar tu equipo.
-            </p>
-          </div>
+<p>
+Tecnología, celulares, accesorios y servicio técnico.
+Soluciones confiables para mantenerte conectado.
+</p>
 
-          <div class="service">
-            <div class="icon">🎧</div>
-            <h3>Accesorios</h3>
-            <p>
-              Micas, cargadores, audífonos y accesorios
-              para tu celular.
-            </p>
-          </div>
+<div class="buttons">
 
-          <div class="service">
-            <div class="icon">💻</div>
-            <h3>Software</h3>
-            <p>
-              Soluciones de software y herramientas
-              tecnológicas.
-            </p>
-          </div>
+<a class="btn btn-primary"
+href="https://wa.me/51927810633"
+target="_blank">
+WhatsApp
+</a>
 
-        </div>
-      </div>
-    </section>
+<a class="btn" href="#servicios">
+Ver servicios
+</a>
+
+</div>
+
+</div>
+
+</section>
 
 
-    <section class="about" id="nosotros">
-      <div class="container">
+<!-- =========================
+     CINTA
+========================= -->
 
-        <div class="about-grid">
+<div class="ticker">
 
-          <div>
-            <div class="tag">ADMAN by Rodríguez</div>
+<div class="ticker-track">
 
-            <h2 class="section-title">
-              Tecnología con respaldo y confianza.
-            </h2>
+<span>🔧 SERVICIO TÉCNICO</span>
+<span>📱 REPARACIÓN DE CELULARES</span>
+<span>🖥️ SOFTWARE</span>
+<span>🔋 CAMBIO DE BATERÍAS</span>
+<span>📲 CAMBIO DE PANTALLAS</span>
+<span>🛡️ MICAS Y PROTECCIÓN</span>
+<span>🎧 ACCESORIOS</span>
+<span>🛒 VENTA DE CELULARES</span>
 
-            <p>
-              Somos una marca tecnológica enfocada en celulares,
-              servicio técnico y soluciones para nuestros clientes.
-            </p>
+<span>🔧 SERVICIO TÉCNICO</span>
+<span>📱 REPARACIÓN DE CELULARES</span>
+<span>🖥️ SOFTWARE</span>
+<span>🔋 CAMBIO DE BATERÍAS</span>
+<span>📲 CAMBIO DE PANTALLAS</span>
+<span>🛡️ MICAS Y PROTECCIÓN</span>
+<span>🎧 ACCESORIOS</span>
+<span>🛒 VENTA DE CELULARES</span>
 
-            <p>
-              Nuestro objetivo es convertir a ADMAN en una de las
-              marcas tecnológicas más reconocidas de Moyobamba.
-            </p>
-          </div>
+</div>
 
-          <div class="advantages">
-
-            <div class="advantage">
-              <strong>✓ Atención personalizada</strong>
-            </div>
-
-            <div class="advantage">
-              <strong>✓ Servicio técnico</strong>
-            </div>
-
-            <div class="advantage">
-              <strong>✓ Soluciones confiables</strong>
-            </div>
-
-            <div class="advantage">
-              <strong>✓ Atención en Moyobamba</strong>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section>
+</div>
 
 
-    <section class="contact" id="contacto">
-      <div class="container">
+<!-- =========================
+     SERVICIOS
+========================= -->
 
-        <h2 class="section-title">
-          ¿Necesitas ayuda con tu celular?
-        </h2>
+<section class="services" id="servicios">
 
-        <div class="contact-box">
+<div class="section-title">
 
-          <p>
-            Escríbenos por WhatsApp y cuéntanos qué necesitas.
-          </p>
+<small>Lo que hacemos</small>
 
-          <a class="btn btn-primary"
-             href="https://wa.me/51927810633?text=Hola%20ADMAN,%20quiero%20cotizar%20un%20servicio."
-             target="_blank">
-            📲 Cotizar por WhatsApp
-          </a>
+<h2>Servicios técnicos.</h2>
 
-          <p style="margin-top:25px;">
-            📍 Moyobamba, San Martín · Perú
-          </p>
+<p>
+Trabajamos con equipos Apple y Android, ofreciendo soluciones
+para problemas de hardware, software y mantenimiento.
+</p>
 
-        </div>
-
-      </div>
-    </section>
-
-  </main>
+</div>
 
 
-  <a class="whatsapp"
-     href="https://wa.me/51927810633?text=Hola%20ADMAN,%20quiero%20hacer%20una%20consulta."
-     target="_blank"
-     aria-label="Contactar por WhatsApp">
-    ☎
-  </a>
+<div class="services-grid">
+
+<div class="service">
+<div class="icon">📱</div>
+<h3>Pantallas</h3>
+<p>Cambio de pantallas, módulos, AMOLED, Incell, IPS y reparación.</p>
+</div>
+
+<div class="service">
+<div class="icon">🔋</div>
+<h3>Baterías</h3>
+<p>Cambio y revisión de baterías para diferentes modelos.</p>
+</div>
+
+<div class="service">
+<div class="icon">⚡</div>
+<h3>Centro de carga</h3>
+<p>Reparación de conectores y problemas de carga.</p>
+</div>
+
+<div class="service">
+<div class="icon">💻</div>
+<h3>Software</h3>
+<p>Diagnóstico, configuración, actualización y soluciones de software.</p>
+</div>
+
+<div class="service">
+<div class="icon">🔬</div>
+<h3>Microsoldadura</h3>
+<p>Diagnóstico y reparación de componentes electrónicos.</p>
+</div>
+
+<div class="service">
+<div class="icon">🧰</div>
+<h3>Reparación</h3>
+<p>Servicio técnico especializado para celulares.</p>
+</div>
+
+<div class="service">
+<div class="icon">🛡️</div>
+<h3>Micas</h3>
+<p>Instalación de micas y protección para tu equipo.</p>
+</div>
+
+<div class="service">
+<div class="icon">🎧</div>
+<h3>Accesorios</h3>
+<p>Cargadores, cables, audífonos, protectores y más.</p>
+</div>
+
+</div>
+
+</section>
 
 
-  <footer>
-    <strong>ADMAN by Rodríguez</strong><br>
-    Tecnología, celulares y servicio técnico.<br><br>
-    © 2026 ADMAN by Rodríguez · Moyobamba, San Martín
-  </footer>
+<!-- =========================
+     GALERÍA
+========================= -->
+
+<section id="trabajos">
+
+<div class="section-title">
+
+<small>Nuestro trabajo</small>
+
+<h2>Reparaciones reales.</h2>
+
+<p>
+Una muestra de algunos trabajos realizados por nuestro servicio técnico.
+Iremos agregando más fotografías constantemente.
+</p>
+
+</div>
+
+
+<div class="gallery">
+
+<div class="photo-slider">
+
+<!--
+==========================================
+FOTOS
+==========================================
+
+PARA AGREGAR MÁS FOTOS:
+
+1. Sube la foto a la carpeta "assets".
+2. Copia uno de estos bloques.
+3. Cambia el nombre del archivo.
+
+Ejemplo:
+
+<div class="photo">
+<img src="assets/mi-foto.jpg" alt="Reparación ADMAN">
+</div>
+
+==========================================
+-->
+
+<div class="photo">
+<img src="assets/01.jpg" alt="Reparación de celular">
+</div>
+
+<div class="photo">
+<img src="assets/02.jpg" alt="Reparación de placa">
+</div>
+
+<div class="photo">
+<img src="assets/03.jpg" alt="Servicio técnico">
+</div>
+
+<div class="photo">
+<img src="assets/04.jpg" alt="Reparación de celular">
+</div>
+
+<div class="photo">
+<img src="assets/05.jpg" alt="Reparación ADMAN">
+</div>
+
+<div class="photo">
+<img src="assets/06.jpg" alt="Servicio técnico ADMAN">
+</div>
+
+<div class="photo">
+<img src="assets/07.jpg" alt="Reparación de pantalla">
+</div>
+
+<div class="photo">
+<img src="assets/08.jpg" alt="Reparación de placa">
+</div>
+
+<div class="photo">
+<img src="assets/09.jpg" alt="Servicio técnico">
+</div>
+
+<div class="photo">
+<img src="assets/10.jpg" alt="Reparación de celular">
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     VIDEOS
+========================= -->
+
+<section class="video-section" id="videos">
+
+<div class="section-title">
+
+<small>Contenido</small>
+
+<h2>Videos y trabajos.</h2>
+
+<p>
+Aquí podrás mostrar reparaciones, procesos, promociones,
+videos de TikTok, Instagram, Facebook o YouTube.
+</p>
+
+</div>
+
+
+<div class="video-grid">
+
+<!--
+==========================================
+VIDEO 1
+==========================================
+
+CUANDO TENGAS UN VIDEO DE YOUTUBE:
+
+Reemplaza este bloque por:
+
+<iframe
+src="https://www.youtube.com/embed/ID_DEL_VIDEO"
+allowfullscreen>
+</iframe>
+
+==========================================
+-->
+
+<div class="video-box">
+<div>
+<span>▶</span>
+<strong>VIDEO 01</strong>
+<p>Espacio preparado para agregar video.</p>
+</div>
+</div>
+
+
+<div class="video-box">
+<div>
+<span>▶</span>
+<strong>VIDEO 02</strong>
+<p>Espacio preparado para agregar video.</p>
+</div>
+</div>
+
+
+<div class="video-box">
+<div>
+<span>▶</span>
+<strong>VIDEO 03</strong>
+<p>Espacio preparado para agregar video.</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     REDES
+========================= -->
+
+<section class="social">
+
+<div class="section-title">
+
+<small>Síguenos</small>
+
+<h2>Estamos en redes.</h2>
+
+<p>
+Encuentra nuestras novedades, trabajos y promociones.
+</p>
+
+</div>
+
+
+<div class="social-grid">
+
+<!-- CAMBIA LOS ENLACES CUANDO LOS TENGAS -->
+
+<a class="social-card"
+href="#"
+target="_blank">
+
+<strong>🎵 TikTok</strong>
+<small>@ADMAN</small>
+
+</a>
+
+
+<a class="social-card"
+href="#"
+target="_blank">
+
+<strong>📘 Facebook</strong>
+<small>ADMAN by Rodríguez</small>
+
+</a>
+
+
+<a class="social-card"
+href="#"
+target="_blank">
+
+<strong>📸 Instagram</strong>
+<small>@ADMAN</small>
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     NOSOTROS
+========================= -->
+
+<section class="about" id="nosotros">
+
+<div class="about-box">
+
+<div>
+
+<h2>ADMAN<br>by Rodríguez.</h2>
+
+<p>
+Somos una empresa dedicada a la tecnología, reparación de celulares,
+venta de equipos y accesorios, buscando brindar soluciones confiables
+a nuestros clientes en Moyobamba y San Martín.
+</p>
+
+</div>
+
+
+<div class="about-list">
+
+<div class="about-item">
+<strong>01 · Tecnología</strong>
+Soluciones para equipos Apple y Android.
+</div>
+
+<div class="about-item">
+<strong>02 · Servicio técnico</strong>
+Diagnóstico y reparación profesional.
+</div>
+
+<div class="about-item">
+<strong>03 · Accesorios</strong>
+Todo lo necesario para proteger y complementar tu equipo.
+</div>
+
+<div class="about-item">
+<strong>04 · Confianza</strong>
+Atención cercana y responsable.
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     CONTACTO
+========================= -->
+
+<section class="contact" id="contacto">
+
+<h2>¿Necesitas reparar<br>tu celular?</h2>
+
+<p>
+Escríbenos y consulta por tu equipo.
+</p>
+
+<a class="whatsapp"
+href="https://wa.me/51927810633"
+target="_blank">
+
+💬 Escribir por WhatsApp
+
+</a>
+
+</section>
+
+
+<!-- =========================
+     BOTÓN WHATSAPP
+========================= -->
+
+<a class="float-wa"
+href="https://wa.me/51927810633"
+target="_blank">
+
+☎
+
+</a>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+ADMAN by Rodríguez · Tecnología y Servicio Técnico · Moyobamba, San Martín
+
+<br><br>
+
+© 2026 ADMAN by Rodríguez. Todos los derechos reservados.
+
+</footer>
 
 </body>
 </html>
-```
